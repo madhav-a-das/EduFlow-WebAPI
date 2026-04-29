@@ -1,0 +1,73 @@
+# =============================================================================
+# EduFlow .editorconfig
+# =============================================================================
+# Forces consistent formatting across Visual Studio, VS Code, Rider, etc.
+# Without this, every developer's IDE adds its own style and PRs become full
+# of noise from CRLF/LF flips, BOM additions, and indentation changes.
+# =============================================================================
+
+root = true
+
+# ----- All files -----
+[*]
+indent_style = space
+indent_size = 4
+end_of_line = crlf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# ----- JSON / YAML use 2 spaces (community convention) -----
+[*.{json,yml,yaml}]
+indent_size = 2
+
+# ----- Markdown allows trailing whitespace (line breaks) -----
+[*.md]
+trim_trailing_whitespace = false
+
+# ----- C# specific rules -----
+[*.cs]
+
+# Naming conventions ---------------------------------------------------------
+# Interfaces must start with I (IUserService, not UserServiceInterface)
+dotnet_naming_rule.interfaces_should_start_with_i.severity = warning
+dotnet_naming_rule.interfaces_should_start_with_i.symbols  = interfaces
+dotnet_naming_rule.interfaces_should_start_with_i.style    = begins_with_i
+
+dotnet_naming_symbols.interfaces.applicable_kinds            = interface
+dotnet_naming_symbols.interfaces.applicable_accessibilities  = public, internal
+
+dotnet_naming_style.begins_with_i.required_prefix     = I
+dotnet_naming_style.begins_with_i.capitalization      = pascal_case
+
+# Private fields must start with underscore (_repository, _logger)
+dotnet_naming_rule.private_fields_should_have_underscore.severity = warning
+dotnet_naming_rule.private_fields_should_have_underscore.symbols  = private_fields
+dotnet_naming_rule.private_fields_should_have_underscore.style    = underscore_camel_case
+
+dotnet_naming_symbols.private_fields.applicable_kinds            = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities  = private
+
+dotnet_naming_style.underscore_camel_case.required_prefix = _
+dotnet_naming_style.underscore_camel_case.capitalization  = camel_case
+
+# Async methods must end with Async
+dotnet_naming_rule.async_methods_end_in_async.severity = warning
+dotnet_naming_rule.async_methods_end_in_async.symbols  = any_async_methods
+dotnet_naming_rule.async_methods_end_in_async.style    = end_in_async
+
+dotnet_naming_symbols.any_async_methods.applicable_kinds            = method
+dotnet_naming_symbols.any_async_methods.applicable_accessibilities  = *
+dotnet_naming_symbols.any_async_methods.required_modifiers          = async
+
+dotnet_naming_style.end_in_async.required_suffix = Async
+dotnet_naming_style.end_in_async.capitalization  = pascal_case
+
+# Code style -----------------------------------------------------------------
+csharp_new_line_before_open_brace = all
+csharp_prefer_braces = true:warning
+csharp_style_namespace_declarations = file_scoped:suggestion
+dotnet_sort_system_directives_first = true
+dotnet_style_qualification_for_field = false:warning
+dotnet_style_qualification_for_property = false:warning
+dotnet_style_qualification_for_method = false:warning

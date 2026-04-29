@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <RootNamespace>EduFlow.Shared</RootNamespace>
+        <AssemblyName>EduFlow.Shared</AssemblyName>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- ASP.NET Core types (HttpContext, DelegatingHandler, etc.) -->
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+
+        <!-- JWT bearer authentication -->
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+
+        <!-- Serilog for shared logging extension -->
+        <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
+        <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
+        <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    </ItemGroup>
+
+</Project>

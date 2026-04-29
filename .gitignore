@@ -1,0 +1,69 @@
+# =============================================================================
+# EduFlow .gitignore
+# =============================================================================
+# What to commit:
+#   - Source code (.cs, .csproj, .sln, .slnx)
+#   - appsettings.json (non-secret config)
+#   - Migrations/
+#
+# What NOT to commit (and why):
+#   - bin/, obj/        - build output, regenerated on every build
+#   - .vs/              - Visual Studio user-specific cache
+#   - appsettings.Development.json - contains connection strings & secrets
+#   - Logs/             - runtime output, machine-specific
+#   - *.user            - per-developer settings
+# =============================================================================
+
+# ----- Build output -----
+bin/
+obj/
+out/
+**/[Bb]in/
+**/[Oo]bj/
+
+# ----- IDE & editor -----
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ----- Secrets & local config -----
+appsettings.Development.json
+appsettings.Local.json
+appsettings.*.local.json
+secrets.json
+*.pfx
+*.key
+
+# ----- Runtime output -----
+Logs/
+logs/
+*.log
+
+# ----- Test coverage -----
+TestResults/
+coverage.*
+*.coverage
+*.coveragexml
+
+# ----- NuGet -----
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# ----- ASP.NET artifacts -----
+wwwroot/dist/
+PublishProfiles/
+
+# ----- Node (for future Angular frontend) -----
+node_modules/
+dist/
+.angular/

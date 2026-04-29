@@ -1,0 +1,35 @@
+<!--
+  =============================================================================
+  EduFlow Directory.Build.props
+  =============================================================================
+  Properties defined here are automatically inherited by EVERY .csproj in this
+  folder and below. Change one place, every service updates.
+
+  This eliminates the "M2 is on net6.0 but M8 is on net8.0" class of bugs.
+  =============================================================================
+-->
+<Project>
+
+    <PropertyGroup>
+        <!-- Target framework: same for every service -->
+        <TargetFramework>net8.0</TargetFramework>
+
+        <!-- Modern C# features -->
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <LangVersion>latest</LangVersion>
+
+        <!-- Treat warnings as errors in CI/release builds -->
+        <!-- (commented for now — uncomment once codebase is clean) -->
+        <!-- <TreatWarningsAsErrors>true</TreatWarningsAsErrors> -->
+
+        <!-- Generate XML docs from /// comments -->
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <NoWarn>$(NoWarn);CS1591</NoWarn> <!-- silence "missing XML doc" warnings -->
+
+        <!-- Don't include obj/bin in source control reports -->
+        <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+        <BaseOutputPath>bin\</BaseOutputPath>
+    </PropertyGroup>
+
+</Project>

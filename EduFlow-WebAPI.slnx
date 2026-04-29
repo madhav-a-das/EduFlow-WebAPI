@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="EduFlow.Shared/EduFlow.Shared.csproj" />
+  <Project Path="IdentityService/IdentityService.csproj" />
+  <Project Path="AttendanceTracking/AttendanceTracking.csproj" />
+  <Project Path="ReportingService/ReportingService.csproj" />
+</Solution>
